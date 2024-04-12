@@ -9,7 +9,25 @@ static int isOddCase(const std::string src)
 
 static int isChar(const std::string src, int len)
 {
-	
+	if ((len == 1 && !isdigit(src[0])) || (len == 3 && src[0] == '\'' && src[2] == '\''))
+		return 1;
+	return 0;
+}
+
+static int isInt(const std::string &src, int len)
+{
+	int i = 0;
+	bool flag = false;
+
+	if (src[0] == '-' || src[0] == '+')
+	{
+		flag = 1;
+		i++;
+	}
+	while ((src[i] && len > 0 && len < 12) || (src[i] && !flag && len > 0 && len < 11))
+		if (!isdigit(src[i++]))
+			return 0;
+	return 1;
 }
 int getType(std::string &src, int &len)
 {
