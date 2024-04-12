@@ -4,6 +4,7 @@
 # include <limits>
 # include <cstdlib>
 # include <cctype>
+# include <cmath>
 
 # define MAX_DOUBLE std::numeric_limits<double>::max()
 # define MIN_DOUBLE std::numeric_limits<double>::min()
@@ -35,5 +36,5 @@ class ScalarConverter
 	void conChar(const std::string &src, int &len);
 	void conFloat(const std::string &src);
 	void conDouble(const std::string &src);
-	void printSpecial(const std::string &src);
+	void printOddCase(const std::string &src);
 	int getType(const std::string &src, int &len);
