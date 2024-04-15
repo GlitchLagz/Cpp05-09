@@ -1,20 +1,20 @@
 #include "ScalarConverter.hpp"
 
-static int isOddCase(const std::string src)
+static int isOddCase(const std::string &src)
 {
 	if (src == "nan" || src == "nanf" || src == "+inf" || src == "+inff" || src == "-inf" || src == "-inff")
 		return 1;
 	return 0;
 }
 
-static int isChar(const std::string src, int len)
+static int isChar(const std::string &src, int &len)
 {
 	if ((len == 1 && !isdigit(src[0])) || (len == 3 && src[0] == '\'' && src[2] == '\''))
 		return 1;
 	return 0;
 }
 
-static int isInt(const std::string &src, int len)
+static int isInt(const std::string &src, int &len)
 {
 	int i = 0;
 	bool flag = false;
@@ -29,6 +29,19 @@ static int isInt(const std::string &src, int len)
 			return 0;
 	return 1;
 }
+
+static int isFloat(const std::string &src, int &len, int &dot_char)
+{
+	for (int i = dot_char - 1; i > -1; i--)
+		if (!isdigit(src[i]))
+			if ((i != 0) || (i == 0 && src[i] != '+' && src[i] != '-'))
+				return 0;
+	for (int i = dot_char + 1; i < len; i++)
+		if ((!isdigit(src[i]) && src[i] != 'f') || (src[i] == 'f' && (i != len - 1)))
+			return 0;
+	return 1;
+}
+
 int getType(std::string &src, int &len)
 {
 	int f_char = src.find('f'), dot_char = src.find('.');

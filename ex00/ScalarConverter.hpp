@@ -19,7 +19,6 @@
 # define CHR 3
 # define SPE 4
 
-
 class ScalarConverter
 {
 	private:
@@ -32,9 +31,10 @@ class ScalarConverter
 		static void convert(std::string src);
 
 };
-	void conInt(const std::string &src);
-	void conChar(const std::string &src, int &len);
-	void conFloat(const std::string &src);
-	void conDouble(const std::string &src);
-	void printOddCase(const std::string &src);
-	int getType(const std::string &src, int &len);
+
+int getType(std::string &src, int &len);
+void printOddCase(const std::string &src);
+void conInt(const std::string &src);
+void conChar(const std::string &src, int &len);
+void conFloat(const std::string &src);
+void conDouble(const std::string &src);
