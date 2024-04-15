@@ -164,6 +164,7 @@ void ScalarConverter::convert(std::string src)
 			break;
 		case SPE:
 			printOddCase(src);
+			break;
 		default:
 			std::cout << "ERR: Invalid input" << std::endl;
 			break;
