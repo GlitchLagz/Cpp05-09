@@ -6,4 +6,4 @@ struct Data
 {
 	std::string client;
 	int pin;
-}
+};
