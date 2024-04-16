@@ -1,5 +1,9 @@
 #include "Serializer.hpp"
 
+//Serialization converts a data object into a series of bytes that
+//saves the state of the object in this easy transmittable form.
+//Deserialization is the reverse process, putting it back together
+
 Serializer::Serializer()
 {
 }
