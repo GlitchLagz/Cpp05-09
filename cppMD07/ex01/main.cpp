@@ -1,8 +1,9 @@
 #include "iter.hpp"
 
-void decrement(int const &n)
+void decrement(int &n)
 {
-	std::cout << n - 1 << std::endl;
+    n -= 1;
+	std::cout << n << std::endl;
 }
 
 void print(std::string const &n)
@@ -36,7 +37,7 @@ void fibonacci(int const &n)
 
 int main(void)
 {
-    int array[] = {4, 9, 6, 3};
+    int array[] = {4, 9, 6, 8};
 	std::string strings[] = {"ABC", "123", "HELLO WORLD!"};
 	std::cout << std::endl;
 	::iter(strings, 3, print);
@@ -44,9 +45,9 @@ int main(void)
     std::cout << std::endl;
     ::iter(strings, 3, print);
     std::cout << std::endl;
-	::iter(array, 4, decrement);
-	std::cout << std::endl;
     ::iter(array, 4, fibonacci);
+	std::cout << std::endl;
+	::iter(array, 4, decrement);
 
     return 0;
 }
