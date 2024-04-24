@@ -16,9 +16,27 @@ void to_lower(std::string &src)
         src[i] = std::tolower(src[i]);
 }
 
+void fibonacci(int const &n)
+{
+    int fib = 0, tmp1 = 1, tmp2 = 0;
+
+    if (n < 1)
+    {
+        std::cout << fib << std::endl;
+        return ;
+    }
+    for(int i = 0; i < n; i++)
+    {
+        fib = tmp1 + tmp2;
+        tmp1 = tmp2;
+        tmp2 = fib;
+    }
+    std::cout << fib << std::endl;
+}
+
 int main(void)
 {
-    int array[] = {4, 2, 6, 2};
+    int array[] = {4, 9, 6, 3};
 	std::string strings[] = {"ABC", "123", "HELLO WORLD!"};
 	std::cout << std::endl;
 	::iter(strings, 3, print);
@@ -28,6 +46,7 @@ int main(void)
     std::cout << std::endl;
 	::iter(array, 4, decrement);
 	std::cout << std::endl;
+    ::iter(array, 4, fibonacci);
 
     return 0;
 }
