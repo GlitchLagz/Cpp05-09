@@ -12,12 +12,18 @@ class Array{
     public:
         Array();
         Array(unsigned int n);
-        Array(Array const &cpy);
-        Array &operator=(Array const &cpy);
+        Array(Array const &src);
+        Array &operator=(Array const &src);
         ~Array();
 
         T &operator[](unsigned int i);
         T const &operator[](unsigned int i) const;
 
         unsigned int size() const;
+
+        class OutOfRangeException : public std::exception
+        {
+            public:
+                virtural const char *what() const throw();
+        }
 };
