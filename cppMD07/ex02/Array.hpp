@@ -16,7 +16,7 @@ class Array{
         Array &operator=(Array const &src);
         ~Array();
 
-        T &operator[](unsigned int i);
+        T& operator[](unsigned int i);
         T const &operator[](unsigned int i) const;
 
         unsigned int size() const;
@@ -24,6 +24,6 @@ class Array{
         class OutOfRangeException : public std::exception
         {
             public:
-                virtural const char *what() const throw();
-        }
+                virtual const char *what() const throw();
+        };
 };

@@ -36,7 +36,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-T &Array::operator[](unsigned int i)
+T& Array::operator[](unsigned int i)
 {
     if (i >= _size)
         throw OutOfRangeException();
