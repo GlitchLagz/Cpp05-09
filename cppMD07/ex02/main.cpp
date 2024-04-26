@@ -12,8 +12,12 @@ int main(void)
     std::cout << "------Int Array Tests------" << std::endl;
     for (int i = 0; i < 10; i++)
         array_2[i] = i + 3;
+	Array<int> cpy_int(array_2);
     for (int i = 0; i < 10; i++)
         std::cout << array_2[i] << std::endl;
+	std::cout << std::endl;
+	for (int i = 0; i < 10; i++)
+        std::cout << cpy_int[i] << std::endl;
     std::cout << "------Invalid Index Tests------" << std::endl;
     try{
         array_1[0] = -2;
@@ -33,8 +37,12 @@ int main(void)
 		s_array[i] = str;
 		str += "|" + str;
 	}
+	Array<std::string> cpy(5);
+	cpy = s_array;
 	for (int i = 0; i < 5; i++)
 		std::cout << s_array[i] << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << cpy[i] << std::endl;
 	std::cout << "------Invalid Index String Tests------" << std::endl;
 	try{
 		s_array[6] = str;
