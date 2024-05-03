@@ -8,6 +8,8 @@ class MutantStack : public std::stack<T>
 {
 	private:
 
+	protected:
+		
 	public:
 		MutantStack();
 		MutantStack(MutantStack consr &src);
