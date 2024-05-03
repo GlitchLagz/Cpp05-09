@@ -40,7 +40,7 @@ int main(void)
 	std::vector<int> v;
 	std::srand(time(NULL));
 	for (int i = 0; i < 100; i++)
-		v.push_back(rand() % 10000);
+		v.push_back(rand() % 100000);
 	try{
 		sp_3.addRange(v.begin(), v.end());
 		std::cout << "shortest span: " << sp_3.shortestSpan() << std::endl;
