@@ -1,7 +1,7 @@
 #pragma once
 
-#include "MutantStack.tpp"
 #include <stack>
+#include <deque>
 #include <iostream>
 
 template <typename T>
@@ -27,3 +27,4 @@ class MutantStack : public std::stack<T>
 		const_reverse_iterator rbegin() const;
 		const_reverse_iterator rend() const;
 };
+#include "MutantStack.tpp"
