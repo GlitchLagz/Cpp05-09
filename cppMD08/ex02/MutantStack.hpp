@@ -1,7 +1,7 @@
 #pragma once
+#include "MutantStack.tpp"
 #include <stack>
 #include <iostream>
-#include "MutantStack.tpp"
 
 template <typename T>
 class MutantStack : public std::stack<T>
