@@ -3,6 +3,7 @@
 
 int main()
 {
+	std::cout << "PDF tests: " << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -24,5 +25,18 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	std::cout << "PDF end tests: " << std::endl;
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+
+	std::cout << "stack: ";
+	while (rit != rite)
+	{
+		std::cout << *rit << " ";
+		++rit;
+	}
+	std::cout << std::endl;
 	return 0;
 }
