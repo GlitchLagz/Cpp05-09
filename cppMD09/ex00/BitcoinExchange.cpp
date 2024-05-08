@@ -8,7 +8,7 @@ static std::string& ltrim(std::string& s){
 }
 
 static std::string& rtrim(std::string& s){
-    s.erase(0, s.find_last_not_of(WHITESPACE) + 1);
+    s.erase(s.find_last_not_of(WHITESPACE) + 1);
     return s;
 }
 
@@ -39,7 +39,7 @@ Btc::Btc(){
         std::string date = line.substr(0, pos);
         double value;
         try{
-            value = std::stod(line.substr(0, pos));
+            value = std::stod(line.substr(pos + 1));
         }
         catch (std::exception const &e){
             std::cerr << e.what() << std::endl;
