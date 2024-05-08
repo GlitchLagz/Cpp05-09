@@ -3,7 +3,7 @@
 int main(int argc, char **argv)
 {
     if (argc != 2){
-        std::cerr << "Cant Open File" << std::endl;
+        std::cerr << "ERR: Cant Open File" << std::endl;
         return EXIT_FAILURE;
     }
     Btc btc;

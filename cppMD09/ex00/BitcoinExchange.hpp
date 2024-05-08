@@ -1,6 +1,5 @@
 #pragma once
 
-#define char* WHITESPACE = " \t\n\r";
 #include <iostream>
 #include <map>
 #include <vector>
@@ -8,6 +7,7 @@
 #include <sstream>
 #include <fstream>
 #include <cctype>
+#include <exception>
 
 class Btc
 {

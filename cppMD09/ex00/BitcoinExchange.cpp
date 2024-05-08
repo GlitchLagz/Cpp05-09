@@ -1,5 +1,7 @@
 #include "BitcoinExchange.hpp"
 
+const char* WHITESPACE = " \t\n\r";
+
 static std::string& ltrim(std::string& s){
     s.erase(0, s.find_last_not_of(WHITESPACE));
     return s;
@@ -73,7 +75,7 @@ std::vector<std::string> Btc::cpp_split(std::string src, char dl){
     std::vector<std::string> res;
     std::string substr = "";
 
-    for (size_t i = 0; i < str.length(); i++){
+    for (size_t i = 0; i < src.length(); i++){
         if (src[i] != dl)
             substr += src[i];
         else{
@@ -113,7 +115,7 @@ void Btc::readFile(std::string path){
         if (it != this->data.end()){
             std::pair<std::string, float> p = *(--it);
             try{
-                if (std::stod(1) >1000)
+                if (std::stod(vec[1]) >1000)
                     std::cout << "ERR: num to large" << std::endl;
                 else if (std::stod(vec[1]) < 0)
                     std::cout << "ERR: not a pos num" << std::endl;
@@ -129,10 +131,10 @@ void Btc::readFile(std::string path){
     file.close();
 }
 
-const char Btc::NotANumberException::what() const throw(){
+const char *Btc::NotANumberException::what() const throw(){
     return ("ERR: input isnt a number");
 }
 
-const char Btc::ParseValueException::what() const throw(){
+const char *Btc::ParseValueException::what() const throw(){
     return ("ERR: couldn't parse value");
 }
