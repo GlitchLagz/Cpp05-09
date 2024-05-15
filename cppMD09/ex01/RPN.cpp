@@ -20,6 +20,19 @@ RPN::RPN(RPN const &src){
 RPN::~RPN()
 {}
 
+int switch_helper(char c, std::stack<double> nums){
+    if (!(nums.size() >= 2))
+        return INV;
+    if (c == '+')
+        return ADD;
+    if (c == '-')
+        return SUB;
+    if (c == '*')
+        return MUL;
+    if (c == '/')
+        return DIV;
+    return INV;
+}
 void RPN::exe(std::string src)
 {
     
@@ -30,38 +43,44 @@ void RPN::exe(std::string src)
         else if (isdigit(c)){
             int nb = c - '0';
             nums.push(nb);
+            continue;
         }
-        else if (c == '+' && nums.size() >= 2){
-            double a, b = nums.top();
-            nums.pop();
-            a = nums.top();
-            nums.pop();
-            nums.push(a + b);
-        }
-        else if (c == '-' && nums.size() >=2){
-            double a, b = nums.top();
-            nums.pop();
-            a = nums.top();
-            nums.pop();
-            nums.push(a - b);
-        }
-        else if (c == '*' && nums.size() >= 2){
-            double a, b = nums.top();
-            nums.pop();
-            a = nums.top();
-            nums.pop();
-            nums.push(a * b);
-        }
-        else if (c == '/' && nums.size() >= 2){
-            double a, b = nums.top();
-            nums.pop();
-            a = nums.top();
-            nums.pop();
-            nums.push(a / b);
-        }
-        else{
-            std::cout << "ERR: Invalid input." << std::endl;
-            return;
+        //std::cout << c << std::endl;
+        int op = switch_helper(c, nums);
+       //std::cout << op << std::endl;
+        double a, b;
+        switch(op){
+            case ADD:
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a + b);
+                break;
+            case SUB:
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a - b);
+                break;
+            case MUL:
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a * b);
+                break;
+            case DIV:
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a / b);
+                break;
+            case INV:
+                std::cout << "ERR: Invalid input." << std::endl;
+                return;
         }
     }
     if (nums.size() == 1){
