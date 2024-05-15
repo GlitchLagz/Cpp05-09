@@ -3,7 +3,7 @@ CPP := c++ -Wall -Werror -Wextra -std=c++98
 OBJ_PATH := ./
 SRC_PATH := ./
 
-EXE := Mutant
+EXE := RPN
 
 TAR := $(SRC)$(EXE)
 
