@@ -1,32 +1,30 @@
 #pragma once
 
 #include <iostream>
-#include <map>
-#include <vector>
-#include <string>
-#include <sstream>
 #include <fstream>
+#include <sstream>
+#include <map>
+#include <string>
+#include <vector>
 #include <cctype>
-#include <exception>
 
 class Btc
 {
     private:
-        int flag;
-        std::map <std::string, float> data;
-    
+    	std::map <std::string, float> data;
+    	int flag;
     public:
-        Btc();
-        Btc(Btc const &src);
-        Btc& operator=(Btc const &src);
-        ~Btc();
+    	Btc();
+    	~Btc();
+    	Btc& operator=(Btc const &var);
+    	Btc(Btc const &var);
 
-        void setData(std::string date, float nb);
-        std::map<std::string, float> getData();
+    	void setData(std::string date, float value);
 
-        void readFile(std::string path);
-        std::vector<std::string> cpp_split(std::string src, char dl);
+    	void readFile(std::string path);
 
+    	std::map<std::string, float> getData();
+    	std::vector<std::string> cpp_split(std::string str, char dl);
         class ParseValueException : public std::exception
         {
             public:
