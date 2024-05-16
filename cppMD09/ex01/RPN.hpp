@@ -13,7 +13,7 @@ class RPN{
     public:
         RPN();
         RPN(std::stack<double> nb);
-        RPN &operator=(const RPN &var);
+        RPN &operator=(const RPN &src);
         RPN(const RPN &src);
         ~RPN();
         
